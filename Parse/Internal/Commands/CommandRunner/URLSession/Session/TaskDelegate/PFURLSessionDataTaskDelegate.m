@@ -75,8 +75,10 @@
 - (void)_taskDidFinish {
     [self _closeDataOutputStream];
     if (self.error) {
+        NSLog(@"/n/n[JERE] Task Failed/n/n");
         [_taskCompletionSource trySetError:self.error];
     } else {
+        NSLog(@"/n/n[JERE] Task Succeeded/n/n");
         [_taskCompletionSource trySetResult:self.result];
     }
 }
