@@ -27,6 +27,8 @@ typedef void (^PFURLSessionTaskCompletionHandler)(NSData *data, NSURLResponse *r
     NSURLSession *_urlSession;
     NSMutableDictionary *_delegatesDictionary;
     dispatch_queue_t _delegatesAccessQueue;
+    
+    id<PFInvalidSessionHandler> _invalidSessionHandler;
 }
 
 @end
@@ -38,21 +40,25 @@ typedef void (^PFURLSessionTaskCompletionHandler)(NSData *data, NSURLResponse *r
 ///--------------------------------------
 
 - (instancetype)initWithConfiguration:(NSURLSessionConfiguration *)configuration
-                             delegate:(id<PFURLSessionDelegate>)delegate {
+                             delegate:(id<PFURLSessionDelegate>)delegate
+                invalidSessionHandler:(nullable id<PFInvalidSessionHandler>)handler {
     // NOTE: cast to id suppresses warning about designated initializer.
     return [(id)self initWithURLSession:[NSURLSession sessionWithConfiguration:configuration
                                                                      delegate:self
                                                                 delegateQueue:nil]
-                               delegate:delegate];
+                               delegate:delegate
+                  invalidSessionHandler:handler];
 }
 
 - (instancetype)initWithURLSession:(NSURLSession *)session
-                          delegate:(id<PFURLSessionDelegate>)delegate {
+                          delegate:(id<PFURLSessionDelegate>)delegate
+             invalidSessionHandler:(nullable id<PFInvalidSessionHandler>)handler {
     self = [super init];
     if (!self) return nil;
 
     _delegate = delegate;
     _urlSession = session;
+    _invalidSessionHandler = handler;
 
     _sessionTaskQueue = dispatch_queue_create("com.parse.urlSession.tasks", DISPATCH_QUEUE_SERIAL);
 
@@ -63,13 +69,14 @@ typedef void (^PFURLSessionTaskCompletionHandler)(NSData *data, NSURLResponse *r
 }
 
 + (instancetype)sessionWithConfiguration:(NSURLSessionConfiguration *)configuration
-                                delegate:(id<PFURLSessionDelegate>)delegate {
-    return [[self alloc] initWithConfiguration:configuration delegate:delegate];
+                                delegate:(id<PFURLSessionDelegate>)delegate
+                   invalidSessionHandler:(id<PFInvalidSessionHandler>)handler {
+    return [[self alloc] initWithConfiguration:configuration delegate:delegate invalidSessionHandler:handler];
 }
 
 + (instancetype)sessionWithURLSession:(nonnull NSURLSession *)session
                              delegate:(id<PFURLSessionDelegate>)delegate {
-    return [[self alloc] initWithURLSession:session delegate:delegate];
+    return [[self alloc] initWithURLSession:session delegate:delegate invalidSessionHandler:nil];
 }
 
 ///--------------------------------------
@@ -104,7 +111,7 @@ typedef void (^PFURLSessionTaskCompletionHandler)(NSData *data, NSURLResponse *r
         });
         PFURLSessionDataTaskDelegate *delegate = [PFURLSessionJSONDataTaskDelegate taskDelegateForDataTask:task
                                                                                      withCancellationToken:cancellationToken];
-        return [self _performDataTask:task withDelegate:delegate];
+        return [self _performDataTask:task withDelegate:delegate invalidSessionHandler:_invalidSessionHandler];
     }];
 }
 
@@ -131,7 +138,7 @@ typedef void (^PFURLSessionTaskCompletionHandler)(NSData *data, NSURLResponse *r
         PFURLSessionUploadTaskDelegate *delegate = [PFURLSessionUploadTaskDelegate taskDelegateForDataTask:task
                                                                                      withCancellationToken:cancellationToken
                                                                                        uploadProgressBlock:progressBlock];
-        return [self _performDataTask:task withDelegate:delegate];
+        return [self _performDataTask:task withDelegate:delegate invalidSessionHandler:_invalidSessionHandler];
     }];
 }
 
@@ -158,13 +165,18 @@ typedef void (^PFURLSessionTaskCompletionHandler)(NSData *data, NSURLResponse *r
                                                                                                  withCancellationToken:cancellationToken
                                                                                                         targetFilePath:filePath
                                                                                                          progressBlock:progressBlock];
-        return [self _performDataTask:task withDelegate:delegate];
+        return [self _performDataTask:task withDelegate:delegate invalidSessionHandler:_invalidSessionHandler];
     }];
 }
 
-- (BFTask *)_performDataTask:(NSURLSessionDataTask *)dataTask withDelegate:(PFURLSessionDataTaskDelegate *)delegate {
+- (BFTask *)_performDataTask:(NSURLSessionDataTask *)dataTask
+                withDelegate:(PFURLSessionDataTaskDelegate *)delegate
+       invalidSessionHandler:(id<PFInvalidSessionHandler>)invalidSessionHandler {
     [self.delegate urlSession:self willPerformURLRequest:dataTask.originalRequest];
 
+    // [jere] TODO: is there a better place to set this? pass it in delegate constructor?
+    delegate.invalidSessionHandler = invalidSessionHandler;
+    
     @weakify(self);
     return [BFTask taskFromExecutor:[BFExecutor defaultExecutor] withBlock:^id{
         @strongify(self);

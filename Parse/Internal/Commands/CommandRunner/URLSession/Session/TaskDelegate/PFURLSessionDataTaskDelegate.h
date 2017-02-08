@@ -15,6 +15,8 @@
 
 @class BFTask <__covariant BFGenericType>;
 
+@protocol PFInvalidSessionHandler;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PFURLSessionDataTaskDelegate : NSObject <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
@@ -24,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) NSHTTPURLResponse *response;
 @property (nullable, nonatomic, copy, readonly) NSString *responseString;
+
+@property (nullable, nonatomic, strong) id<PFInvalidSessionHandler> invalidSessionHandler;
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

@@ -66,19 +66,22 @@
     id delegate = PFStrictProtocolMock(@protocol(PFURLSessionDelegate));
     
     PFURLSession *session = [[PFURLSession alloc] initWithConfiguration:configuration
-                                                               delegate:delegate];
+                                                               delegate:delegate
+                                                  invalidSessionHandler:nil];
     XCTAssertNotNil(session);
     XCTAssertEqual((id)session.delegate, delegate);
     [session invalidateAndCancel];
     
     session = [PFURLSession sessionWithConfiguration:configuration
-                                            delegate:delegate];
+                                            delegate:delegate
+                               invalidSessionHandler:nil];
     XCTAssertNotNil(session);
     XCTAssertEqual((id)session.delegate, delegate);
     [session invalidateAndCancel];
     
     session = [[PFURLSession alloc] initWithURLSession:URLSession
-                                              delegate:delegate];
+                                              delegate:delegate
+                                 invalidSessionHandler:nil];
     XCTAssertNotNil(URLSession);
     XCTAssertEqual((id)session.delegate, delegate);
     
@@ -562,7 +565,8 @@
 - (void)testInvalidate {
     id delegate = PFStrictProtocolMock(@protocol(PFURLSessionDelegate));
     PFURLSession *session = [PFURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                                          delegate:delegate];
+                                                          delegate:delegate
+                                             invalidSessionHandler:nil];
     XCTAssertNoThrow([session invalidateAndCancel]); // lol?
 }
 

@@ -11,6 +11,8 @@
 
 #import <Parse/PFConstants.h>
 
+@protocol PFInvalidSessionHandler;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -88,6 +90,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSUInteger networkRetryAttempts;
 
+/**
+ If set, this handler will be called when the user's session becomes invalid or expired
+ */
+@property (nullable, nonatomic, strong) id<PFInvalidSessionHandler> invalidSessionHandler;
+
 @end
 
 /**
@@ -158,6 +165,11 @@ NS_ASSUME_NONNULL_BEGIN
  The maximum number of retry attempts to make upon a failed network request.
  */
 @property (nonatomic, assign, readonly) NSUInteger networkRetryAttempts;
+
+/**
+ If set, this handler will be called when the user's session becomes invalid or expired
+ */
+@property (nullable, nonatomic, strong, readonly) id<PFInvalidSessionHandler> invalidSessionHandler;
 
 ///--------------------------------------
 #pragma mark - Creating a Configuration

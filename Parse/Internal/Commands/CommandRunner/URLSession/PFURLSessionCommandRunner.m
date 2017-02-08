@@ -56,17 +56,19 @@
                       retryAttempts:PFCommandRunningDefaultMaxAttemptsCount
                       applicationId:applicationId
                           clientKey:clientKey
-                          serverURL:serverURL];
+                          serverURL:serverURL
+                          invalidSessionHandler:nil];
 }
 
 - (instancetype)initWithDataSource:(id<PFInstallationIdentifierStoreProvider>)dataSource
                      retryAttempts:(NSUInteger)retryAttempts
                      applicationId:(NSString *)applicationId
                          clientKey:(nullable NSString *)clientKey
-                         serverURL:(NSURL *)serverURL {
+                         serverURL:(NSURL *)serverURL
+             invalidSessionHandler:(id<PFInvalidSessionHandler>)handler {
     NSURLSessionConfiguration *configuration = [[self class] _urlSessionConfigurationForApplicationId:applicationId clientKey:clientKey];
 
-    PFURLSession *session = [PFURLSession sessionWithConfiguration:configuration delegate:self];
+    PFURLSession *session = [PFURLSession sessionWithConfiguration:configuration delegate:self invalidSessionHandler:handler];
     PFCommandURLRequestConstructor *constructor = [PFCommandURLRequestConstructor constructorWithDataSource:dataSource serverURL:serverURL];
     self = [self initWithDataSource:dataSource
                             session:session
@@ -110,12 +112,14 @@
                               retryAttempts:(NSUInteger)retryAttempts
                               applicationId:(NSString *)applicationId
                                   clientKey:(nullable NSString *)clientKey
-                                  serverURL:(nonnull NSURL *)serverURL {
+                                  serverURL:(nonnull NSURL *)serverURL
+                      invalidSessionHandler:(id<PFInvalidSessionHandler>)handler {
     return [[self alloc] initWithDataSource:dataSource
                               retryAttempts:retryAttempts
                               applicationId:applicationId
                                   clientKey:clientKey
-                                  serverURL:serverURL];
+                                  serverURL:serverURL
+                      invalidSessionHandler:handler];
 }
 
 ///--------------------------------------

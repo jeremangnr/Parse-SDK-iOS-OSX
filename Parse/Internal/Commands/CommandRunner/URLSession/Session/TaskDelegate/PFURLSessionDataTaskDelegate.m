@@ -15,6 +15,7 @@
 
 #import "PFAssert.h"
 #import "PFMacros.h"
+#import "PFInvalidSessionHandler.h"
 
 @interface PFURLSessionDataTaskDelegate () {
     BFTaskCompletionSource *_taskCompletionSource;
@@ -75,10 +76,12 @@
 - (void)_taskDidFinish {
     [self _closeDataOutputStream];
     if (self.error) {
-        NSLog(@"/n/n[JERE] Task Failed/n/n");
+        if (self.invalidSessionHandler && self.error.code == kPFErrorInvalidSessionToken) {
+            [self.invalidSessionHandler handleInvalidOrExpiredSessionForUser];
+        }
+        
         [_taskCompletionSource trySetError:self.error];
     } else {
-        NSLog(@"/n/n[JERE] Task Succeeded/n/n");
         [_taskCompletionSource trySetResult:self.result];
     }
 }

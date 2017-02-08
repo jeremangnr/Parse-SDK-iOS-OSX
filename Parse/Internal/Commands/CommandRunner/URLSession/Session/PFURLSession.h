@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 
 #import <Parse/PFConstants.h>
+#import "PFInvalidSessionHandler.h"
 
 @class BFCancellationToken;
 
@@ -40,10 +41,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)new NS_UNAVAILABLE;
 
 - (instancetype)initWithConfiguration:(NSURLSessionConfiguration *)configuration
-                             delegate:(id<PFURLSessionDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+                             delegate:(id<PFURLSessionDelegate>)delegate
+                invalidSessionHandler:(nullable id<PFInvalidSessionHandler>)handler NS_DESIGNATED_INITIALIZER;
 
 + (instancetype)sessionWithConfiguration:(NSURLSessionConfiguration *)configuration
-                                delegate:(id<PFURLSessionDelegate>)delegate;
+                                delegate:(id<PFURLSessionDelegate>)delegate
+                   invalidSessionHandler:(nullable id<PFInvalidSessionHandler>)handler;
 
 ///--------------------------------------
 #pragma mark - Teardown

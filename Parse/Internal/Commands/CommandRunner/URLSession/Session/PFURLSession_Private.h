@@ -8,13 +8,15 @@
  */
 
 #import "PFURLSession.h"
+@protocol PFInvalidSessionHandler;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PFURLSession ()
 
 - (instancetype)initWithURLSession:(NSURLSession *)session
-                          delegate:(id<PFURLSessionDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+                          delegate:(id<PFURLSessionDelegate>)delegate
+             invalidSessionHandler:(nullable id<PFInvalidSessionHandler>)handler NS_DESIGNATED_INITIALIZER;
 
 + (instancetype)sessionWithURLSession:(NSURLSession *)session
                              delegate:(id<PFURLSessionDelegate>)delegate;

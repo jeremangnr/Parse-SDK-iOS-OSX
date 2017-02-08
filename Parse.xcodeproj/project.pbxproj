@@ -2566,6 +2566,8 @@
 		97DE045A16321492007154E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DE045916321492007154E8 /* Security.framework */; };
 		97DE045C163214C0007154E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DE045B163214C0007154E8 /* SystemConfiguration.framework */; };
 		97EB055516F7CCE400E09147 /* PFAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 9739513916B9D28E0010B884 /* PFAnalytics.m */; };
+		B23879D81E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */; };
+		B23879D91E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */; };
 		F50C66331B33A708001941A6 /* PFPushUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F50C66311B33A708001941A6 /* PFPushUtilities.h */; };
 		F50C66341B33A708001941A6 /* PFPushUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50C66321B33A708001941A6 /* PFPushUtilities.m */; };
 		F50C667C1B34B231001941A6 /* PFPushUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50C66321B33A708001941A6 /* PFPushUtilities.m */; };
@@ -3470,6 +3472,7 @@
 		97DE045B163214C0007154E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		97E18AE41623835600B17A67 /* PFLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLocationManager.h; sourceTree = "<group>"; };
 		97E18AE51623835600B17A67 /* PFLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFLocationManager.m; sourceTree = "<group>"; };
+		B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInvalidSessionHandler.h; sourceTree = "<group>"; };
 		E9BBE98E16D18E5800CD7B52 /* PFObject+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse/PFObject+Subclass.h"; sourceTree = SOURCE_ROOT; };
 		E9E81E8316EEF93E001D034F /* PFSubclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSubclassing.h; sourceTree = "<group>"; };
 		F50C66311B33A708001941A6 /* PFPushUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPushUtilities.h; sourceTree = "<group>"; };
@@ -3697,6 +3700,7 @@
 				E9E81E8316EEF93E001D034F /* PFSubclassing.h */,
 				81DEF089199D555800D86A21 /* PFNetworkActivityIndicatorManager.h */,
 				81DEF08A199D555800D86A21 /* PFNetworkActivityIndicatorManager.m */,
+				B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -5752,6 +5756,7 @@
 				8166FC791B50376D003841A2 /* PFObjectControlling.h in Headers */,
 				81BCB4CE1B744626006659CB /* PFURLSessionUploadTaskDelegate.h in Headers */,
 				814881601B795CD4008763BF /* PFMultiProcessFileLock.h in Headers */,
+				B23879D81E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */,
 				F5C42CDA1B38761B00C720D8 /* PFObjectSubclassInfo.h in Headers */,
 				8196D55B1B0AB64B000465A1 /* PFAnalyticsController.h in Headers */,
 				813E769A1B7A9BD000FA3294 /* PFErrorUtilities.h in Headers */,
@@ -6037,6 +6042,7 @@
 				81C584391C3B0A98000063C6 /* PFObjectLocalIdStore.h in Headers */,
 				81C5843A1C3B0A98000063C6 /* PFPropertyInfo_Runtime.h in Headers */,
 				81C5843B1C3B0A98000063C6 /* PFInstallationPrivate.h in Headers */,
+				B23879D91E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */,
 				81C5843C1C3B0A98000063C6 /* PFURLSessionDataTaskDelegate.h in Headers */,
 				81C5843D1C3B0A98000063C6 /* PFDateFormatter.h in Headers */,
 				81C5843E1C3B0A98000063C6 /* PFCloudCodeController.h in Headers */,
