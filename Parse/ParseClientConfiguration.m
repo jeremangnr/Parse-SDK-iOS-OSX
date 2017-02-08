@@ -90,6 +90,11 @@ NSString *const _ParseDefaultServerURLString = @"https://api.parse.com/1";
     _containingApplicationBundleIdentifier = containingApplicationBundleIdentifier;
 }
 
+- (void)setInvalidSessionHandler:(id<PFInvalidSessionHandler>)invalidSessionHandler
+{
+    _invalidSessionHandler = invalidSessionHandler;
+}
+
 - (void)_resetDataSharingIdentifiers {
     _applicationGroupIdentifier = nil;
     _containingApplicationBundleIdentifier = nil;
