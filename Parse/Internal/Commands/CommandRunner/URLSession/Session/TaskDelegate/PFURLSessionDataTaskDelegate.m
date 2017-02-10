@@ -77,7 +77,7 @@
     [self _closeDataOutputStream];
     if (self.error) {
         if (self.invalidSessionHandler && self.error.code == kPFErrorInvalidSessionToken) {
-            [self.invalidSessionHandler handleInvalidOrExpiredSessionForUser];
+            [self.invalidSessionHandler handleInvalidOrExpiredSession];
         }
         
         [_taskCompletionSource trySetError:self.error];

@@ -15,11 +15,9 @@
 @protocol PFInvalidSessionHandler <NSObject>
 
 /**
- Called when the user's session becomes invalid or expired
- 
- @note This method will be executed on the main thread.
- 
+ Called when the user's session becomes invalid or expired, here you can
+ add logic to log the user in again.
  */
-- (void)handleInvalidOrExpiredSessionForUser;
+- (void)handleInvalidOrExpiredSession;
 
 @end
