@@ -27,6 +27,8 @@ extern NSString *const _ParseDefaultServerURLString;
 
 @property (nonatomic, assign, readwrite) NSUInteger networkRetryAttempts;
 
+@property (nonatomic, assign, readwrite) NSTimeInterval timeoutIntervalForRequests;
+
 + (instancetype)emptyConfiguration;
 - (instancetype)initEmpty NS_DESIGNATED_INITIALIZER;
 

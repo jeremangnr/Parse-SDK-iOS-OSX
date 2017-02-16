@@ -90,6 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSUInteger networkRetryAttempts;
 
+@property (nonatomic, assign) NSTimeInterval timeoutIntervalForRequests;
+
 /**
  If set, this handler will be called when the user's session becomes invalid or expired
  */
@@ -165,6 +167,8 @@ NS_ASSUME_NONNULL_BEGIN
  The maximum number of retry attempts to make upon a failed network request.
  */
 @property (nonatomic, assign, readonly) NSUInteger networkRetryAttempts;
+
+@property (nonatomic, assign, readonly) NSTimeInterval timeoutIntervalForRequests;
 
 /**
  If set, this handler will be called when the user's session becomes invalid or expired

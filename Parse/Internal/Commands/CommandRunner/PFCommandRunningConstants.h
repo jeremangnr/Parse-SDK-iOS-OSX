@@ -14,6 +14,7 @@
 ///--------------------------------------
 
 extern uint8_t const PFCommandRunningDefaultMaxAttemptsCount;
+extern uint8_t const PFCommandRunningDefaultTimeoutIntervalForRequests;
 
 ///--------------------------------------
 #pragma mark - Headers

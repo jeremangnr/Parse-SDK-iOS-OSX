@@ -310,6 +310,7 @@ static NSString *const _ParseApplicationIdFileName = @"applicationId";
         if (!_commandRunner) {
             _commandRunner = [PFURLSessionCommandRunner commandRunnerWithDataSource:self
                                                                       retryAttempts:self.configuration.networkRetryAttempts
+                                                         timeoutIntervalForRequests:self.configuration.timeoutIntervalForRequests
                                                                       applicationId:self.configuration.applicationId
                                                                           clientKey:self.configuration.clientKey
                                                                           serverURL:[NSURL URLWithString:self.configuration.server]

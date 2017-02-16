@@ -10,6 +10,7 @@
 #import "PFCommandRunningConstants.h"
 
 uint8_t const PFCommandRunningDefaultMaxAttemptsCount = 5;
+uint8_t const PFCommandRunningDefaultTimeoutIntervalForRequests = 60;
 
 NSString *const PFCommandHeaderNameApplicationId = @"X-Parse-Application-Id";
 NSString *const PFCommandHeaderNameClientKey = @"X-Parse-Client-Key";

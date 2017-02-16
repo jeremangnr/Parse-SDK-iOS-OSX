@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)commandRunnerWithDataSource:(id<PFInstallationIdentifierStoreProvider>)dataSource
                               retryAttempts:(NSUInteger)retryAttempts
+                 timeoutIntervalForRequests:(NSTimeInterval)timeoutIntervalForRequests
                               applicationId:(NSString *)applicationId
                                   clientKey:(nullable NSString *)clientKey
                                   serverURL:(NSURL *)serverURL

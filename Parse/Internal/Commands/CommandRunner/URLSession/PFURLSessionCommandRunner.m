@@ -54,6 +54,7 @@
                          serverURL:(NSURL *)serverURL {
     return [self initWithDataSource:dataSource
                       retryAttempts:PFCommandRunningDefaultMaxAttemptsCount
+         timeoutIntervalForRequests:PFCommandRunningDefaultTimeoutIntervalForRequests
                       applicationId:applicationId
                           clientKey:clientKey
                           serverURL:serverURL
@@ -62,11 +63,12 @@
 
 - (instancetype)initWithDataSource:(id<PFInstallationIdentifierStoreProvider>)dataSource
                      retryAttempts:(NSUInteger)retryAttempts
+        timeoutIntervalForRequests:(NSTimeInterval)timeoutIntervalForRequests
                      applicationId:(NSString *)applicationId
                          clientKey:(nullable NSString *)clientKey
                          serverURL:(NSURL *)serverURL
              invalidSessionHandler:(id<PFInvalidSessionHandler>)handler {
-    NSURLSessionConfiguration *configuration = [[self class] _urlSessionConfigurationForApplicationId:applicationId clientKey:clientKey];
+    NSURLSessionConfiguration *configuration = [[self class] _urlSessionConfigurationForApplicationId:applicationId clientKey:clientKey timeoutIntervalForRequests:timeoutIntervalForRequests];
 
     PFURLSession *session = [PFURLSession sessionWithConfiguration:configuration delegate:self invalidSessionHandler:handler];
     PFCommandURLRequestConstructor *constructor = [PFCommandURLRequestConstructor constructorWithDataSource:dataSource serverURL:serverURL];
@@ -110,12 +112,14 @@
 
 + (instancetype)commandRunnerWithDataSource:(id<PFInstallationIdentifierStoreProvider>)dataSource
                               retryAttempts:(NSUInteger)retryAttempts
+                 timeoutIntervalForRequests:(NSTimeInterval)timeoutIntervalForRequests
                               applicationId:(NSString *)applicationId
                                   clientKey:(nullable NSString *)clientKey
                                   serverURL:(nonnull NSURL *)serverURL
                       invalidSessionHandler:(id<PFInvalidSessionHandler>)handler {
     return [[self alloc] initWithDataSource:dataSource
                               retryAttempts:retryAttempts
+                 timeoutIntervalForRequests:timeoutIntervalForRequests
                               applicationId:applicationId
                                   clientKey:clientKey
                                   serverURL:serverURL
@@ -258,7 +262,8 @@
 ///--------------------------------------
 
 + (NSURLSessionConfiguration *)_urlSessionConfigurationForApplicationId:(NSString *)applicationId
-                                                              clientKey:(nullable NSString *)clientKey {
+                                                              clientKey:(nullable NSString *)clientKey
+                                             timeoutIntervalForRequests:(NSTimeInterval)timeoutIntervalForRequests {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
 
     // No cookies, they are bad for you.
@@ -276,6 +281,7 @@
                                                                                               bundle:bundle];
     configuration.HTTPAdditionalHeaders = headers;
 
+    configuration.timeoutIntervalForRequest = timeoutIntervalForRequests;
     return configuration;
 }
 

@@ -34,6 +34,7 @@ NSString *const _ParseDefaultServerURLString = @"https://api.parse.com/1";
     if (!self) return nil;
 
     _networkRetryAttempts = PFCommandRunningDefaultMaxAttemptsCount;
+    _timeoutIntervalForRequests = PFCommandRunningDefaultTimeoutIntervalForRequests;
     _server = [_ParseDefaultServerURLString copy];
 
     return self;
@@ -45,6 +46,9 @@ NSString *const _ParseDefaultServerURLString = @"https://api.parse.com/1";
 
     configurationBlock(self);
 
+    if (self.timeoutIntervalForRequests <= 0) {
+        self.timeoutIntervalForRequests = PFCommandRunningDefaultTimeoutIntervalForRequests;
+    }
     PFConsistencyAssert(self.applicationId.length, @"`applicationId` should not be nil.");
 
     return self;
@@ -120,7 +124,8 @@ NSString *const _ParseDefaultServerURLString = @"https://api.parse.com/1";
             self.localDatastoreEnabled == other.localDatastoreEnabled &&
             [PFObjectUtilities isObject:self.applicationGroupIdentifier equalToObject:other.applicationGroupIdentifier] &&
             [PFObjectUtilities isObject:self.containingApplicationBundleIdentifier equalToObject:other.containingApplicationBundleIdentifier] &&
-            self.networkRetryAttempts == other.networkRetryAttempts);
+            self.networkRetryAttempts == other.networkRetryAttempts &&
+            self.timeoutIntervalForRequests == other.timeoutIntervalForRequests);
 }
 
 ///--------------------------------------
@@ -138,6 +143,7 @@ NSString *const _ParseDefaultServerURLString = @"https://api.parse.com/1";
         configuration->_containingApplicationBundleIdentifier = [self->_containingApplicationBundleIdentifier copy];
         configuration->_networkRetryAttempts = self->_networkRetryAttempts;
         configuration->_invalidSessionHandler = self->_invalidSessionHandler;
+        configuration->_timeoutIntervalForRequests = self->_timeoutIntervalForRequests;
     }];
 }
 
