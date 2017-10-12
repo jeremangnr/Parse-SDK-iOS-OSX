@@ -12,6 +12,7 @@
 #import <Parse/PFConstants.h>
 
 @protocol PFInvalidSessionHandler;
+@protocol PFFileUploadController;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
  @note Setting this property to a non-valid URL or `nil` will throw an `NSInvalidArgumentException`.
  */
 @property (nonatomic, copy) NSString *server;
+
+/**
+ Sets a custom file upload controller that uploads PFFiles using its own policy.
+ */
+@property (nonatomic, strong, readwrite, nullable) id<PFFileUploadController> fileUploadController;
 
 ///--------------------------------------
 #pragma mark - Enabling Local Datastore
@@ -126,6 +132,11 @@ NS_ASSUME_NONNULL_BEGIN
  Defaults to `https://api.parse.com/1`
  */
 @property (nonatomic, copy, readonly) NSString *server;
+
+/**
+ The custom upload controller that synchronously uploads PFFiles using its own policy.
+ */
+@property (nonatomic, strong, readonly, nullable) id<PFFileUploadController> fileUploadController;
 
 ///--------------------------------------
 #pragma mark - Enabling Local Datastore

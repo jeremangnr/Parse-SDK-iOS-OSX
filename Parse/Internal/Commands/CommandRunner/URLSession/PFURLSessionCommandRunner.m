@@ -203,7 +203,7 @@
 #pragma mark - Retrying
 ///--------------------------------------
 
-- (BFTask *)_performCommandRunningBlock:(nonnull id (^)())block
+- (BFTask *)_performCommandRunningBlock:(nonnull id (^)(void))block
                             withOptions:(PFCommandRunningOptions)options
                       cancellationToken:(BFCancellationToken *)cancellationToken {
     if (cancellationToken.cancellationRequested) {
@@ -226,7 +226,7 @@
                                  forAttempts:_retryAttempts];
 }
 
-- (BFTask *)_performCommandRunningBlock:(nonnull id (^)())block
+- (BFTask *)_performCommandRunningBlock:(nonnull id (^)(void))block
                   withCancellationToken:(BFCancellationToken *)cancellationToken
                                   delay:(NSTimeInterval)delay
                             forAttempts:(NSUInteger)attempts {
