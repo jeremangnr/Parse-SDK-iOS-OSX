@@ -2591,8 +2591,6 @@
 		97DE045A16321492007154E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DE045916321492007154E8 /* Security.framework */; };
 		97DE045C163214C0007154E8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DE045B163214C0007154E8 /* SystemConfiguration.framework */; };
 		97EB055516F7CCE400E09147 /* PFAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 9739513916B9D28E0010B884 /* PFAnalytics.m */; };
-		B23879D81E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */; };
-		B23879D91E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */; };
 		A6E2958C1E96173D009917BF /* ParseManagerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E295801E961727009917BF /* ParseManagerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A6E2958D1E96173F009917BF /* ParseManagerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E295801E961727009917BF /* ParseManagerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A6E2958E1E961741009917BF /* ParseManagerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = A6E295801E961727009917BF /* ParseManagerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -2621,6 +2619,13 @@
 		B141170F1E5D081500F70D7A /* PFFileUploadResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B141170A1E5D081500F70D7A /* PFFileUploadResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B14117101E5D081500F70D7A /* PFFileUploadResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B141170A1E5D081500F70D7A /* PFFileUploadResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B14117111E5D081500F70D7A /* PFFileUploadResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B141170A1E5D081500F70D7A /* PFFileUploadResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B22BB7C620FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
+		B22BB7C720FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
+		B22BB7C820FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
+		B22BB7C920FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
+		B22BB7CA20FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
+		B22BB7CB20FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
+		B22BB7CC20FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */; };
 		F50C66331B33A708001941A6 /* PFPushUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = F50C66311B33A708001941A6 /* PFPushUtilities.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		F50C66341B33A708001941A6 /* PFPushUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50C66321B33A708001941A6 /* PFPushUtilities.m */; };
 		F50C667C1B34B231001941A6 /* PFPushUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F50C66321B33A708001941A6 /* PFPushUtilities.m */; };
@@ -3456,11 +3461,11 @@
 		97DE045B163214C0007154E8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		97E18AE41623835600B17A67 /* PFLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFLocationManager.h; sourceTree = "<group>"; };
 		97E18AE51623835600B17A67 /* PFLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFLocationManager.m; sourceTree = "<group>"; };
-		B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInvalidSessionHandler.h; sourceTree = "<group>"; };
 		A6E295801E961727009917BF /* ParseManagerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseManagerPrivate.h; sourceTree = "<group>"; };
 		B141169D1E5BC24B00F70D7A /* PFFileUploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFileUploadController.h; sourceTree = "<group>"; };
 		B14116FB1E5D078E00F70D7A /* PFFileUploadResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFileUploadResult.m; sourceTree = "<group>"; };
 		B141170A1E5D081500F70D7A /* PFFileUploadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFileUploadResult.h; sourceTree = "<group>"; };
+		B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFInvalidSessionHandler.h; sourceTree = "<group>"; };
 		E9BBE98E16D18E5800CD7B52 /* PFObject+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse/PFObject+Subclass.h"; sourceTree = SOURCE_ROOT; };
 		E9E81E8316EEF93E001D034F /* PFSubclassing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFSubclassing.h; sourceTree = "<group>"; };
 		F50C66311B33A708001941A6 /* PFPushUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFPushUtilities.h; sourceTree = "<group>"; };
@@ -3703,7 +3708,7 @@
 				E9E81E8316EEF93E001D034F /* PFSubclassing.h */,
 				81DEF089199D555800D86A21 /* PFNetworkActivityIndicatorManager.h */,
 				81DEF08A199D555800D86A21 /* PFNetworkActivityIndicatorManager.m */,
-				B23879D71E4BC120001ACBD2 /* PFInvalidSessionHandler.h */,
+				B22BB7C520FD2B4900911A7C /* PFInvalidSessionHandler.h */,
 			);
 			path = Parse;
 			sourceTree = "<group>";
@@ -5391,6 +5396,7 @@
 				810156541BB3832700D7C7BD /* PFUserState_Private.h in Headers */,
 				810156551BB3832700D7C7BD /* PFAnonymousAuthenticationProvider.h in Headers */,
 				810156561BB3832700D7C7BD /* PFQueryState.h in Headers */,
+				B22BB7CB20FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				810156571BB3832700D7C7BD /* PFObjectFileCoder.h in Headers */,
 				8101565A1BB3832700D7C7BD /* PFDevice.h in Headers */,
 				8101565B1BB3832700D7C7BD /* PFQueryState_Private.h in Headers */,
@@ -5601,6 +5607,7 @@
 				815F24031BD04D150054659F /* PFObjectFileCoder.h in Headers */,
 				815F24061BD04D150054659F /* PFDevice.h in Headers */,
 				815F24071BD04D150054659F /* PFQueryState_Private.h in Headers */,
+				B22BB7C920FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				815F24081BD04D150054659F /* PFObjectSubclassingController.h in Headers */,
 				815F24091BD04D150054659F /* PFOfflineQueryController.h in Headers */,
 				815F240B1BD04D150054659F /* PFSQLiteDatabase_Private.h in Headers */,
@@ -5759,7 +5766,6 @@
 				8166FC791B50376D003841A2 /* PFObjectControlling.h in Headers */,
 				81BCB4CE1B744626006659CB /* PFURLSessionUploadTaskDelegate.h in Headers */,
 				814881601B795CD4008763BF /* PFMultiProcessFileLock.h in Headers */,
-				B23879D81E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */,
 				F5C42CDA1B38761B00C720D8 /* PFObjectSubclassInfo.h in Headers */,
 				8196D55B1B0AB64B000465A1 /* PFAnalyticsController.h in Headers */,
 				813E769A1B7A9BD000FA3294 /* PFErrorUtilities.h in Headers */,
@@ -5777,6 +5783,7 @@
 				81CB7F8E1B1795C000DC601D /* PFPushState.h in Headers */,
 				812B02A81B5DE562003846EE /* PFCommandURLRequestConstructor.h in Headers */,
 				818ADC761BE1A8BA00C8006C /* PFFilePersistenceGroup.h in Headers */,
+				B22BB7C620FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				815EE94619FAD12F0076FE5D /* PFRESTQueryCommand.h in Headers */,
 				F51535021B571E9100C49F56 /* PFACLState_Private.h in Headers */,
 				F50C66331B33A708001941A6 /* PFPushUtilities.h in Headers */,
@@ -6004,6 +6011,7 @@
 				81C584121C3B0A98000063C6 /* PFFilePersistenceGroup.h in Headers */,
 				81C584131C3B0A98000063C6 /* PFRESTQueryCommand.h in Headers */,
 				81C584141C3B0A98000063C6 /* PFACLState_Private.h in Headers */,
+				B22BB7C720FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				A6E2958D1E96173F009917BF /* ParseManagerPrivate.h in Headers */,
 				81C584171C3B0A98000063C6 /* PFPushUtilities.h in Headers */,
 				81C584181C3B0A98000063C6 /* PFSQLiteDatabase.h in Headers */,
@@ -6038,7 +6046,6 @@
 				81C584391C3B0A98000063C6 /* PFObjectLocalIdStore.h in Headers */,
 				81C5843A1C3B0A98000063C6 /* PFPropertyInfo_Runtime.h in Headers */,
 				81C5843B1C3B0A98000063C6 /* PFInstallationPrivate.h in Headers */,
-				B23879D91E4BC120001ACBD2 /* PFInvalidSessionHandler.h in Headers */,
 				81C5843C1C3B0A98000063C6 /* PFURLSessionDataTaskDelegate.h in Headers */,
 				81C5843D1C3B0A98000063C6 /* PFDateFormatter.h in Headers */,
 				81C5843E1C3B0A98000063C6 /* PFCloudCodeController.h in Headers */,
@@ -6268,6 +6275,7 @@
 				81C585AC1C3B0AA1000063C6 /* PFObjectFileCoder.h in Headers */,
 				81C585AE1C3B0AA1000063C6 /* PFDevice.h in Headers */,
 				81C585AF1C3B0AA1000063C6 /* PFQueryState_Private.h in Headers */,
+				B22BB7CA20FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				81C585B01C3B0AA1000063C6 /* PFObjectSubclassingController.h in Headers */,
 				81C585B11C3B0AA1000063C6 /* PFOfflineQueryController.h in Headers */,
 				81C585B41C3B0AA1000063C6 /* PFSQLiteDatabase_Private.h in Headers */,
@@ -6469,6 +6477,7 @@
 				81C586FD1C3B0AA9000063C6 /* PFUserState_Private.h in Headers */,
 				81C586FE1C3B0AA9000063C6 /* PFAnonymousAuthenticationProvider.h in Headers */,
 				81C586FF1C3B0AA9000063C6 /* PFQueryState.h in Headers */,
+				B22BB7CC20FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				81C587001C3B0AA9000063C6 /* PFObjectFileCoder.h in Headers */,
 				81C587011C3B0AA9000063C6 /* PFDevice.h in Headers */,
 				81C587021C3B0AA9000063C6 /* PFQueryState_Private.h in Headers */,
@@ -6660,6 +6669,7 @@
 				8166FCC11B503886003841A2 /* PFSQLiteDatabaseResult.h in Headers */,
 				815960A21ABCA3B30069EBCC /* PFFileManager.h in Headers */,
 				81BCB4CB1B744626006659CB /* PFURLSessionJSONDataTaskDelegate.h in Headers */,
+				B22BB7C820FD2B4900911A7C /* PFInvalidSessionHandler.h in Headers */,
 				F51535051B57240900C49F56 /* PFACLPrivate.h in Headers */,
 				F5B0C4F51BA248F7000AB0D5 /* PFFileDataStream.h in Headers */,
 				8124C8A01B27BF0900758E00 /* PFSessionController.h in Headers */,
